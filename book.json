@@ -1,0 +1,60 @@
+{
+  "title" : "Blog of passer",
+  "author": "passer",
+  "description" : "一些技术总结的博客",
+  "language" : "zh-hans",
+  "plugins": [
+    "back-to-top-button",
+    "chapter-fold",
+    "expandable-chapters",
+    "code",
+    "-lunr", "-search", "search-pro",
+    "advanced-emoji",
+    "github",
+    "splitter",
+    "-sharing", "sharing-plus",
+    "tbfed-pagefooter",
+    "simple-page-toc",
+    "flexible-alerts",
+    "pageview-count"
+  ],
+  "pluginsConfig": {
+    "github": {
+        "url": "https://github.com/icankeep"
+    },
+    "sharing": {
+      "douban": false,
+      "facebook": true,
+      "google": true,
+      "hatenaBookmark": false,
+      "instapaper": false,
+      "line": false,
+      "linkedin": false,
+      "messenger": false,
+      "pocket": false,
+      "qq": true,
+      "qzone": true,
+      "stumbleupon": false,
+      "twitter": true,
+      "viber": false,
+      "vk": false,
+      "weibo": true,
+      "whatsapp": false,
+      "all": [
+          "douban", "facebook", "google", "hatenaBookmark", 
+          "instapaper", "linkedin","twitter", "weibo", 
+          "messenger","qq", "qzone","viber","vk","weibo",
+          "pocket", "stumbleupon","whatsapp"
+      ]
+  },
+  "simple-page-toc": {
+    "maxDepth": 3,
+    "skipFirstH1": true
+  },
+  "tbfed-pagefooter": {
+      "copyright":"Copyright &copy passer 2020",
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+  }
+}
+}
