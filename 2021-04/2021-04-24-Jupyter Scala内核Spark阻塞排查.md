@@ -8,7 +8,7 @@
 
 目前开源的Jupyter Scala内核：[参考链接](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels)
 
-### Almond (当前MTJupyter所选方案)
+### Almond (当前我们所选方案)
 
 [GitHub](https://github.com/almond-sh/almond)
 [官方文档](https://almond.sh/docs/0.3.1/quick-start-install)
