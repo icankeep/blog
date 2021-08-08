@@ -3,8 +3,7 @@
 ## grep
 
 > 参考文档：
-> - [Linux命令：grep命令 | egrep命令](cnblogs.com/ysuwangqiang/p/11443785.html)
-> - 
+> [Linux命令：grep命令 | egrep命令](cnblogs.com/ysuwangqiang/p/11443785.html)
 
 - 查找某关键词前后几行
 ```bash
