@@ -7,11 +7,11 @@
 
 - 查找某关键词前后几行
 ```bash
-# 包含之后10行
+#包含之后10行
 grep -A 10 "demo" simple.log
-# 包含之前10行
+#包含之前10行
 grep -B 10 "demo" simple.log
-# 包含前后10行
+#包含前后10行
 grep -C 10 "demo" simple.log
 ```
 
