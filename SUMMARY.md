@@ -42,6 +42,8 @@
 - 2021 05
   * [线程cpu飙升排查](2021-05/线程CPU飙升排查.md)
   * [zookeeper install](2021-05/zookeeper%20install.md)
+- 2021 08
+  * [常用shell命令总结](2021-08/1%20常用Shell命令总结.md)
 - 2021 10
   * [swagger2快速使用](2021-10/swagger2快速使用.md)
 
