@@ -46,4 +46,5 @@
   * [常用shell命令总结](2021-08/1%20常用Shell命令总结.md)
 - 2021 10
   * [swagger2快速使用](2021-10/swagger2快速使用.md)
+  * [SpringBoot接口cors跨域访问](2021-10/SpringBoot接口cors跨域访问.md)
 
