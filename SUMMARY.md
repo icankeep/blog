@@ -47,4 +47,6 @@
 - 2021 10
   * [swagger2快速使用](2021-10/swagger2快速使用.md)
   * [SpringBoot接口cors跨域访问](2021-10/SpringBoot接口cors跨域访问.md)
+- 2021 11
+  * [常用消息队列总结](2021-11/常用消息队列总结.md)
 
