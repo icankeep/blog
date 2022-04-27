@@ -1,0 +1,25 @@
+## HashMap/Set
+
+### Hashtable
+
+## TreeMap/TreeSet
+
+## PriorityQueue
+
+## List
+### ArrayList
+底层是数组，数组的特性都有，按照index随机访问时间复杂度O(1)
+增：O(1) 需要考虑扩容，每次扩容1.5倍
+删：O(n) 被删除元素后面的需要统一往前移
+改：O(1) 
+查：O(1)
+
+#### Vector
+
+### LinkedList
+底层是链表
+增：O(1) 
+删：O(n) 需要遍历链表
+改：O(n) 需要遍历链表
+查：O(n)
+
