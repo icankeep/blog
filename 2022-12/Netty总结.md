@@ -1,5 +1,8 @@
 # Netty
 
+## Java NIO基础介绍
+> 参考 https://www.cnblogs.com/hamsure/p/15549612.html
+
 ## Netty高性能总结
 ![](imgs/netty高性能总结.png)
 
@@ -30,8 +33,7 @@
     - runAllTasks：再去以此循环处理任务队列中的其他任务
 7. 在以上两个processSelectedKeys步骤中，会使用 Pipeline（管道），Pipeline 中引用了 Channel，即通过 Pipeline 可以获取到对应的 Channel，Pipeline 中维护了很多的处理器（拦截处理器、过滤处理器、自定义处理器等）。
 
-// todo 建立channel 注册channel的过程及实现？
-
+建立channel 注册channel的过程及实现 可见下文
 
 #### 主从Reactor多线程模型实现
 > 参考链接：https://www.kancloud.cn/luoyoub/network-programming/2234086
@@ -76,8 +78,6 @@
 - SimpleChannelInboundHandler (可以用于处理特定类型的消息)
 - ChannelInitializer
 - Encoder Decoder （TCP粘包/拆包）
-
-// todo 补充更多的编解码 tcp粘包
 
 主要功能：
 1. 处理或拦截IO事件，并将其转发到其`ChannelPipeline`中的下一个`Handler`
@@ -205,11 +205,18 @@ http server的handler，一般和HttpObjectAggregator组合使用
  *
 ```
 
-### HeapBuffer和DirectBuffer
+### ByteBuf
 =>
+- ByteBufHolder
+- ByteBufAllocator
+- ByteBufUtil
+- CompositeByteBuf  
 - UnpooledByteBufAllocator
 - PooledByteBufAllocator
+- DirectByteBuf
+- HeapByteBuf
 
+// todo 源码实现待阅读
 
 ## Netty关键流程
 
