@@ -1,0 +1,100 @@
+@startuml
+Actor actor
+actor -> ServerBootstrap: bind
+activate ServerBootstrap
+ServerBootstrap -> AbstractBootstrap : bind
+activate AbstractBootstrap
+AbstractBootstrap -> AbstractBootstrap : bind
+activate AbstractBootstrap
+AbstractBootstrap -> AbstractBootstrap : validate
+activate AbstractBootstrap
+deactivate AbstractBootstrap
+AbstractBootstrap -> AbstractBootstrap : doBind
+activate AbstractBootstrap
+AbstractBootstrap -> AbstractBootstrap : initAndRegister
+activate AbstractBootstrap
+AbstractBootstrap -> ChannelFactory : newChannel
+activate ChannelFactory
+ChannelFactory --> AbstractBootstrap
+deactivate ChannelFactory
+AbstractBootstrap -> ServerBootstrap : init
+activate ServerBootstrap
+    note right
+        init过程
+        1. setChannelOptions
+        2. setAttributes
+        3. 创建pipeline
+        3. pipeline.
+             addLast(new ServerBootstrapAcceptor(...))
+    end note
+ServerBootstrap --> AbstractBootstrap
+deactivate ServerBootstrap
+
+AbstractBootstrap -> SingleThreadEventLoop: register
+activate SingleThreadEventLoop
+SingleThreadEventLoop -> AbstractChannel.AbstractUnsafe: register
+activate AbstractChannel.AbstractUnsafe
+AbstractChannel.AbstractUnsafe --> SingleThreadEventLoop
+SingleThreadEventLoop --> AbstractBootstrap
+deactivate SingleThreadEventLoop
+AbstractBootstrap --> ServerBootstrap
+deactivate AbstractBootstrap
+deactivate AbstractBootstrap
+deactivate AbstractBootstrap
+deactivate AbstractBootstrap
+ServerBootstrap --> actor
+deactivate ServerBootstrap
+
+
+
+    group 异步执行，直接返回Future
+
+        AbstractChannel.AbstractUnsafe -> AbstractChannel.AbstractUnsafe: register0
+        activate AbstractChannel.AbstractUnsafe
+        AbstractChannel.AbstractUnsafe -> AbstractNioChannel: doRegister
+        activate AbstractNioChannel
+        AbstractNioChannel -> AbstractNioChannel: SelectableChannel register\nops=0
+        AbstractNioChannel --> AbstractChannel.AbstractUnsafe
+        deactivate AbstractChannel.AbstractUnsafe
+        deactivate AbstractNioChannel
+        AbstractChannel.AbstractUnsafe -> AbstractChannel.AbstractUnsafe: pipeline.\nfireChannelRegistered()
+        alt isActive & firstRegistration
+            AbstractChannel.AbstractUnsafe -> AbstractChannel.AbstractUnsafe: pipeline.\nfireChannelActive()
+            note right
+                之后会触发AbstractNioChannel doBeginRead
+                selectionKey.interestOps(interestOps | readInterestOp)
+                将selectionKey从0置为监听读
+            end note
+        end
+        deactivate AbstractChannel.AbstractUnsafe
+        deactivate AbstractChannel
+        deactivate EventLoopGroup
+        deactivate AbstractBootstrap
+    end
+
+group 【register完成后回调执行】doBind0
+    AbstractBootstrap -> AbstractBootstrap : doBind0
+    activate AbstractBootstrap
+    AbstractBootstrap -> AbstractChannel: bind
+    deactivate AbstractBootstrap
+    activate AbstractChannel
+    AbstractChannel -> DefaultChannelPipeline: bind
+    activate DefaultChannelPipeline
+    DefaultChannelPipeline -> AbstractChannelHandlerContext: bind
+    activate AbstractChannelHandlerContext
+    AbstractChannelHandlerContext -> AbstractChannelHandlerContext: bind
+    AbstractChannelHandlerContext -> AbstractChannelHandlerContext: invokeBind
+    AbstractChannelHandlerContext -> AbstractChannel: bind
+    activate AbstractChannel
+    AbstractChannel -> NioServerSocketChannel: doBind
+    activate NioServerSocketChannel
+    NioServerSocketChannel --> AbstractChannel
+    deactivate NioServerSocketChannel
+    AbstractChannel --> AbstractChannelHandlerContext
+    AbstractChannelHandlerContext --> DefaultChannelPipeline
+    deactivate AbstractChannelHandlerContext
+    DefaultChannelPipeline --> AbstractChannel
+    deactivate DefaultChannelPipeline
+    deactivate AbstractChannel
+end
+@enduml
