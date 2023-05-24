@@ -69,3 +69,4 @@
   * [MySQL中BufferPool](2023-04/MySQL中BufferPool.md)
 - 2023 05
   * [线上机器CLOSE_WAIT连接数异常排查](2023-05/线上机器CLOSE_WAIT连接数异常排查.md)
+  * [多数据源引发transactional事务回滚失效](2023-05/多数据源引发transactional事务回滚失效.md)
