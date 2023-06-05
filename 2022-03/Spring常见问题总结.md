@@ -18,3 +18,22 @@
 6 零拷贝
 https://juejin.cn/post/6995519558475841550
 
+
+- BeanDefinitionRegistryPostProcessor和BeanFactoryPostProcessor差别
+
+
+在Spring中，常被用于扩展的接口有以下几个：
+
+BeanPostProcessor：Bean后置处理器接口，它定义了在Spring容器实例化bean之后、初始化bean之前和之后执行的回调方法。通过实现BeanPostProcessor接口，我们可以在bean实例化和初始化的过程中对bean进行自定义的处理，例如修改bean的属性、添加代理等。
+
+BeanFactoryPostProcessor：Bean工厂后置处理器接口，它定义了在Spring容器实例化bean之后、初始化bean之前执行的回调方法。通过实现BeanFactoryPostProcessor接口，我们可以在bean实例化之前对bean的定义进行修改，例如添加新的属性、修改属性值等。
+
+ApplicationContextAware：应用上下文感知接口，它定义了一个setApplicationContext方法，用于在bean实例化之后自动注入应用上下文对象。通过实现ApplicationContextAware接口，我们可以在bean中获取应用上下文对象，从而实现一些高级的功能，例如获取其他bean的引用、获取环境变量等。
+
+InitializingBean：初始化接口，它定义了一个afterPropertiesSet方法，用于在bean属性设置完成之后执行一些初始化操作。通过实现InitializingBean接口，我们可以在bean初始化的过程中执行一些自定义的初始化操作，例如检查bean的状态、初始化一些资源等。
+
+DisposableBean：销毁接口，它定义了一个destroy方法，用于在bean销毁之前执行一些清理操作。通过实现DisposableBean接口，我们可以在bean销毁的过程中执行一些自定义的清理操作，例如释放一些资源、关闭一些连接等。
+FactoryBean
+通过实现这些接口，我们可以在Spring容器中对bean进行更加细粒度的控制和扩展，实现一些高级的功能和自定义的处理逻辑
+
+
