@@ -94,3 +94,6 @@ https://blog.csdn.net/minghao0508/article/details/125834496
 
 ### 实验代码
 https://github.com/icankeep/transactional-lab
+
+### 自定义多数据源回滚注解
+https://blog.csdn.net/u014644574/article/details/128857774
