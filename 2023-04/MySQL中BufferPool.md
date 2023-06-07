@@ -31,6 +31,8 @@
 - [MySQL索引总结](https://icankeep.gitbook.io/blog/2019-03/20190314mysql-zhong-suo-yin)
 - [MySQL存储引擎](https://icankeep.gitbook.io/blog/2019-03/20190314mysql-cun-chu-yin-qing)
 - [MySQL锁机制](https://icankeep.gitbook.io/blog/2019-03/20190314mysql-suo-ji-zhi)
+- [InnoDB数据插入流程](https://www.cnblogs.com/wtzbk/p/14410608.html)
+- [ChangeBuffer](https://developer.aliyun.com/article/1230041?spm=a2c6h.12873639.article-detail.37.32396393rR0uLB&scm=20140722.ID_community@@article@@1230041._.ID_community@@article@@1230041-OR_rec-V_1-RL_community@@article@@1114025)
 
 ## Buffer Pool
 - 索引页、数据页、锁、undo页、自适应哈希索引和插入缓冲页

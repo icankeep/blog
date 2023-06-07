@@ -1,3 +1,8 @@
+## SpringBoot自动装配的原理
+SpringBoot自动装配主要依赖的是`@EnableAutoConfiguration`注解，在`@SpringBootApplication`注解中贴了该注解，该注解可以让SpringBoot在
+启动时，从classpath中扫所有jar包的META-INF/spring.factories文件，获取到EnableAutoConfiguration.class映射的所有类名列表，Spring会在所有非配置类Bean初始化前
+根据对应AutoConfiguration类上的条件，如果满足的话就加载类并进行初始化，放到Spring容器中
+
 ## @SpringBootApplication注解
 
 包含注解

@@ -81,6 +81,19 @@ public class RestTemplateConfig {
 }
 ```
 
+### 抓包分析
+使用tcpdump抓包
+```bash
+tcpdump -i eth0 tcp and host 需要抓包的host -w request.cap
+```
+
+通过wireshark打开包文件，进行简单分析
+![wireshark.png](imgs/wireshark截图.png)
+
+1. 首先进行TCP三次握手
+2. 正常HTTP请求及响应，发送以及接收数据包
+3. 经过200s后，被HTTP请求的服务端主动发送FIN标志位数据包请求断开连接，服务端回了ACK，但没有再发送FIN
+
 ## 3、解决问题
 结合服务情况，每次请求获取RestTemplate单例
 ```java
@@ -126,6 +139,16 @@ public class RestTemplateConfig {
 }
 ```
 
+## 改造后效果
+减少一些机器负载，数据上少了很多毛刺，机器上CLOSE_WAIT也基本没了，存在少量TIME_WAIT，比较符合预期
+
+机器负载，可看12.30前后对比
+![cpu-idle.png](imgs/cpu-idle.png)
+
+gc次数，可看12.30前后对比
+![gc-count.png](imgs/gc-count.png)
+
+
 ## 4、扩展问题
 
 ### TCP状态扩展
@@ -154,7 +177,5 @@ Maximum Segment Lifetime 报文最大生存时间，它是任何报文在网络�
 ### 出现了大量TIME_WAIT连接，主要是什么原因？
 
 [详细介绍可查看这篇文章](https://xiaolincoding.com/network/3_tcp/tcp_interview.html#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%87%BA%E7%8E%B0%E5%A4%A7%E9%87%8F-time-wait-%E7%8A%B6%E6%80%81%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%9C%89%E5%93%AA%E4%BA%9B)
-
-
 
 
