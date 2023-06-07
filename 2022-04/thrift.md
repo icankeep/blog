@@ -1,6 +1,7 @@
 1. https://juejin.cn/post/6844903622380093447
 2. https://juejin.cn/post/6844903622384287751
 3. https://juejin.cn/post/6844903622384287757
+4. https://juejin.cn/post/6968641908314751012
 
 ## Server端
 - TSimpleServer：采用最简单的阻塞IO，只有一个工作线程，循环监听新请求的到来并完成对请求的处理，一次只能接收和处理一个socket连接。
