@@ -1,4 +1,5 @@
-> 参考博客：https://xiaolincoding.com/redis/base/redis_interview.html#%E8%AE%A4%E8%AF%86-redis
+:q
+> > 参考博客：https://xiaolincoding.com/redis/base/redis_interview.html#%E8%AE%A4%E8%AF%86-redis
 
 ## 基本数据类型
 - string => SDS
