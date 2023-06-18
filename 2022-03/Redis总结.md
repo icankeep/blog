@@ -1,4 +1,5 @@
-> 参考博客：https://xiaolincoding.com/redis/base/redis_interview.html#%E8%AE%A4%E8%AF%86-redis
+:q
+> > 参考博客：https://xiaolincoding.com/redis/base/redis_interview.html#%E8%AE%A4%E8%AF%86-redis
 
 ## 高性能原因
 - C 语言实现，虽然 C 对 Redis 的性能有助力，但语言并不是最核心因素。

@@ -282,6 +282,22 @@ https://juejin.cn/post/6844903889003610119
 https://www.cnblogs.com/yunxintryyoubest/p/14077258.html
 https://www.cnblogs.com/mysky007/p/12288729.html
 
+### Kafka的选举
+https://juejin.cn/post/6844903846297206797
+
+[Kafka 3.0去ZK化](https://www.toutiao.com/article/7080065467280278046/?wid=1686649637724)
+
+### Kafka的重均衡
+[Kafka的重均衡](https://juejin.cn/post/6992195021910835230)
+
+在消费者端，重平衡分为两个步骤：分别是加入组和等待领导者消费者（Leader Consumer）分配方案。这两个步骤分别对应两类特定的请求：JoinGroup 请求和 SyncGroup 请求。
+
+当组内成员加入组时，它会向协调者发送 JoinGroup 请求。在该请求中，每个成员都要将自己订阅的主题上报，这样协调者就能收集到所有成员的订阅信息。一旦收集了全部成员的 JoinGroup 请求后，协调者会从这些成员中选择一个担任这个消费者组的领导者。领导者消费者的任务是收集所有成员的订阅信息，然后根据这些信息，制定具体的分区消费分配方案。
+
+选出领导者之后，协调者会把消费者组订阅信息封装进 JoinGroup 请求的响应体中，然后发给领导者，由领导者统一做出分配方案后,领导者向协调者发送 SyncGroup 请求，将刚刚做出的分配方案发给协调者。
+
+其他成员也会向协调者发送 SyncGroup 请求，只不过请求体中并没有实际的内容。这一步的主要目的是让协调者接收分配方案，然后统一以 SyncGroup 响应的方式分发给所有成员，这样组内所有成员就都知道自己该消费哪些分区了。
+
 ### mmap
 mmap绕过了read、write系统函数调用，绕过了一次数据从内核空间到用户空间的拷贝，即实现零拷贝，MappedByteBuffer使用直接内存而非JVM的堆内存。
 
