@@ -45,25 +45,29 @@ appium-doctor --ios
 ```
 
 可以忽略这部分`optional`的依赖检测
+
 ![](img_7.png)
 
-### appium-inspector
+### 2.4 安装appium-inspector
+可视化操作App元素
+
 GitHub: https://github.com/appium/appium-inspector
+
 安装包下载：https://github.com/appium/appium-inspector/releases
 
-### WDA
+### 2.5 安装WDA
 
-#### Clone WDA项目
+#### 2.5.1 Clone WDA项目
 ```bash
 # https://appium.github.io/appium-xcuitest-driver/5.7/run-preinstalled-wda/
 # 不要用facebook的那个，且不需要执行 ./Scripts/bootstrap.sh
 git clone https://github.com/appium/WebDriverAgent
 ```
 
-#### xcode打开
+#### 2.5.2 xcode打开
 clone之后直接使用xcode打开 `WebDriverAgent.xcodeproj`
 
-#### 配置Bundle相关信息
+#### 2.5.3 配置Bundle相关信息
 
 Team直接选个人Team
 
@@ -71,13 +75,13 @@ Bundle Identifier随便填一个，如 `com.xxx.wda.runner`，xxx随便填一个
 
 ![](img.png)
 
-#### 配置scheme
+#### 2.5.4 配置scheme
 
 scheme选择`WebDriverAgentRunner`
 
 ![](img_2.png)
 
-#### 连接手机配置destination
+#### 2.5.5 连接手机配置destination
 
 数据线连接上电脑就会显示自己的手机了
 
@@ -85,12 +89,12 @@ scheme选择`WebDriverAgentRunner`
 
 ![](img_3.png)
 
-#### 测试
+#### 2.5.6 测试
 
 点击测试后就会触发编译，成功后手机上会安装对应的应用
 ![](img_4.png)
 
-### 启动appium
+### 2.6 启动appium
 
 ```bash
 # 直接终端启动server即可
@@ -99,24 +103,24 @@ appium
 
 ![](img_5.png)
 
-### 启动appium-inspector
+### 2.7 启动appium-inspector
 界面化操作app，方便通过鼠标获取位置元素等
 
 ![](img_6.png)
 
-### 使用Python脚本自动化执行（optional）
+### 2.8 使用Python脚本自动化执行（optional）
 
-#### 安装Python环境
+#### 2.8.1 安装Python环境
 省略...
 
-#### SDK介绍
+#### 2.8.2 SDK介绍
 - sdk中提供的find_element等接口可以通过XPATH等获取指定元素，获取指定元素后可以进行点击或其他动作
 - sdk中提供了一些模拟的动作，如点击、长按的动作
 
 Refer: https://www.browserstack.com/guide/touch-actions-in-appium#toc3
 
 
-#### 执行脚本
+#### 2.8.9 执行脚本
 ```bash
 python test.py
 ```
@@ -128,9 +132,12 @@ from appium.webdriver.common.touch_action import TouchAction
 caps = {}
 caps["appium:automationName"] = "XCUITest"
 caps["platformName"] = "iOS"
+# 换成自己的手机iOS版本
 caps["appium:platformVersion"] = "16.6.1"
+# 这个是京东app的，换成自己需要连接的应用bundle id
 caps["appium:app"] = "com.360buy.jdmobile"
-caps["appium:udid"] = "00008110-0019694A0ABB801E"
+# 换成自己的设备id
+caps["appium:udid"] = "00008***4A0ABB801E"
 caps["appium:includeSafariInWebviews"] = True
 caps["appium:newCommandTimeout"] = 3600
 caps["appium:connectHardwareKeyboard"] = True
@@ -159,6 +166,7 @@ driver.quit()
 
 ## 三、总结 // Summary
 
+### 版本信息 // Version
 上述过程中软件版本如下，可供参考
 ```bash
 PC系统 => MacOS 13.3.1
@@ -176,7 +184,6 @@ selenium => 4.8.3
 ### 引用 // Refer
 - 主要参考：https://www.jianshu.com/p/ae0959d19665?utm_campaign=maleskine...&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 - 坑点排除：https://blog.csdn.net/xlyrh/article/details/108410738
-- 
 - Appium: https://appium.io/docs/en/2.1/guides/caps/
 - 获取iOS App Bundle ID: https://commandnotfound.cn/tools/ios-app-bundle-id?id=414245413
 - Apple 基础应用 Bundle ID List: https://support.apple.com/zh-cn/guide/deployment/depece748c41/web
