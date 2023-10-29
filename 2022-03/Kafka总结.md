@@ -264,9 +264,13 @@ Consumer 程序有个“位移”的概念，表示的是这个 Consumer 当前�
 添加/删除消费者，topic新增partition
 
 ### kafka为什么性能这么高？
-1. 批量发送消息
-1. 消息持久化使用顺序IO，减少磁盘寻道时间，通过索引快速定位消息
-1. 磁盘文件交互使用零拷贝；多partition机制，不同partition leader在不同broker中，单机磁盘IO不会成为瓶颈
+1. 根据partition聚合批量发送消息
+1. broker端采用高性能Reactor网络模型，1个Acceptor m个Processor n个KafkaRequestHandler
+1. 消息持久化是通过mmap写到pagecache，再异步刷盘，并且是顺序写，性能非常高
+1. 消费消息通过稀疏索引快速定位消息，并且索引文件通过mmap映射，最近几KB较热数据会在内存中，避免频繁触发缺页中断加载数据到内存
+1. 多partition机制，不同partition leader在不同broker中，单机磁盘IO不会成为瓶颈
+
+https://www.51cto.com/article/686111.html
 
 ### kafka如何保证消息Exactly One？
 https://www.lixueduan.com/post/kafka/10-exactly-once-impl/
