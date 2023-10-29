@@ -46,7 +46,7 @@ appium-doctor --ios
 
 可以忽略这部分`optional`的依赖检测
 
-![](img_7.png)
+![](imgs/img_7.png)
 
 ### 2.4 安装appium-inspector
 可视化操作App元素
@@ -73,13 +73,13 @@ Team直接选个人Team
 
 Bundle Identifier随便填一个，如 `com.xxx.wda.runner`，xxx随便填一个
 
-![](img.png)
+![](imgs/img.png)
 
 #### 2.5.4 配置scheme
 
 scheme选择`WebDriverAgentRunner`
 
-![](img_2.png)
+![](imgs/img_2.png)
 
 #### 2.5.5 连接手机配置destination
 
@@ -87,12 +87,12 @@ scheme选择`WebDriverAgentRunner`
 
 > 手机需要开启开发者模式，在设置 -> 安全隐私 中开启即可
 
-![](img_3.png)
+![](imgs/img_3.png)
 
 #### 2.5.6 测试
 
 点击测试后就会触发编译，成功后手机上会安装对应的应用
-![](img_4.png)
+![](imgs/img_4.png)
 
 ### 2.6 启动appium
 
@@ -101,12 +101,12 @@ scheme选择`WebDriverAgentRunner`
 appium
 ```
 
-![](img_5.png)
+![](imgs/img_5.png)
 
 ### 2.7 启动appium-inspector
 界面化操作app，方便通过鼠标获取位置元素等
 
-![](img_6.png)
+![](imgs/img_6.png)
 
 ### 2.8 使用Python脚本自动化执行（optional）
 
