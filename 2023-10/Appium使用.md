@@ -185,6 +185,8 @@ selenium => 4.8.3
 - 主要参考：https://www.jianshu.com/p/ae0959d19665?utm_campaign=maleskine...&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 - 坑点排除：https://blog.csdn.net/xlyrh/article/details/108410738
 - Appium: https://appium.io/docs/en/2.1/guides/caps/
+- WDA原理：https://www.cnblogs.com/guowenrui/p/16990067.html
+- Appium Ruby Console: https://debugtalk.com/post/build-app-automated-test-platform-from-0-to-1-Appium-interrogate-iOS-UI/
 - 获取iOS App Bundle ID: https://commandnotfound.cn/tools/ios-app-bundle-id?id=414245413
 - Apple 基础应用 Bundle ID List: https://support.apple.com/zh-cn/guide/deployment/depece748c41/web
 
